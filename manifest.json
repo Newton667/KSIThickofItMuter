@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "KSI Thick of It Video Muter",
+  "version": "1.0",
+  "description": "Mutes a specific YouTube video when it is played in the browser.",
+  "author": "Newton667 https://github.com/Newton667",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["Muted.png"],
+      "matches": ["https://www.youtube.com/*"]
+    }
+  ]
+}
