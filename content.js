@@ -1,13 +1,16 @@
 console.log("Content script running");
 
-const videoId = "At8v_Yc044Y";
+const videoIds = ["At8v_Yc044Y", "tXEPbotEjZE"]; // List of video IDs to mute
 let mutedOverlay = null;
 
 // Function to handle video muting and overlay
 function handleVideo() {
   const videoElement = document.querySelector('video');
 
-  if (window.location.href.includes(videoId)) {
+  // Check if the current URL contains one of the target video IDs
+  const isTargetVideo = videoIds.some(id => window.location.href.includes(id));
+
+  if (isTargetVideo) {
     console.log("Target video detected");
 
     if (videoElement) {
